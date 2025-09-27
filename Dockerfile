@@ -19,7 +19,7 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Instala dependencias del sistema necesarias para sharp
-RUN apk add --no-cache libc6-compat libvips
+RUN apk add --no-cache libc6-compat
 
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs

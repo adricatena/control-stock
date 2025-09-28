@@ -46,11 +46,11 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # - name: Trigger Coolify deployment
-      #   run: |
-      #     curl -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
-      #     -H "Content-Type: application/json" \
-      #     -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}" \
-      #     -d '{
-      #       "image": "ghcr.io/${{ github.repository_owner }}/web-municipalidad:latest"
-      #     }'
+      - name: Trigger Coolify deployment
+        run: |
+          curl -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}" \
+          -d '{
+            "image": "ghcr.io/${{ github.repository_owner }}/web-municipalidad:latest"
+          }'

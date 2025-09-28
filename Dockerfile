@@ -14,13 +14,15 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN bun run build
+RUN mkdir -p .next/static
+RUN mkdir -p public
 
 # Crea usuario no root para producción
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
 # Copia archivos necesarios para standalone
-# COPY ./public ./public
+COPY ./public ./public
 COPY --chown=nextjs:nodejs ./.next/standalone ./
 COPY --chown=nextjs:nodejs ./.next/static ./.next/static
 

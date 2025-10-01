@@ -19,6 +19,10 @@ COPY . .
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED=1
+ARG PAYLOAD_SECRET
+ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
+ARG DATABASE_URI
+ENV DATABASE_URI=$DATABASE_URI
 
 RUN bun run build
 
